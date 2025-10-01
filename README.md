@@ -19,7 +19,7 @@ suited for evaluating the writing of English as a Second Language (ESL)
 students. In this study, we aim to develop an effective model for
 assessing the writing skills of ESL students in grades 8-12.
 
-![](https://github.com/ydchendsa/imgs/blob/main/nlp/imgimage001.png)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/img/image001.png)
 The dataset used in this study consists of two parts: a training set
 with 3911 student essays and scores in six different areas (cohesion,
 syntax, vocabulary, phraseology, grammar, and conventions), and a test
