@@ -19,20 +19,20 @@ suited for evaluating the writing of English as a Second Language (ESL)
 students. In this study, we aim to develop an effective model for
 assessing the writing skills of ESL students in grades 8-12.
 
-![](https://github.com/ydchendsa/nlp/blob/main/imgimage001.png)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/imgimage001.png)
 The dataset used in this study consists of two parts: a training set
 with 3911 student essays and scores in six different areas (cohesion,
 syntax, vocabulary, phraseology, grammar, and conventions), and a test
 set with three student essays, two book passages, and three essays
 written by our group members.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image003.png)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image003.png)
 The accompanying distribution figure shows the length of essays written
 by ESL students in grades 8-12. The distribution is slightly skewed to
 the right, with a mean length of approximately 440 words. This suggests
 that few of the 3911 essays are particularly long.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image005.png)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image005.png)
 
 In this study, we have visualized the score distributions for six
 different areas of writing ability. These distributions are generally
@@ -42,7 +42,7 @@ all six areas, is bimodal, with peaks at around 16.5 and 20. The mean
 total score is approximately 18.5, indicating that the average score in
 each area falls between 2.75 and 3.33.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image007.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image007.jpg)
 
 To better understand how scores are assigned to individual students, we
 explored the diversity of word usage in each essay using the
@@ -51,23 +51,22 @@ essay into categories such as nouns, verbs, adjectives, and adverbs. We
 then used a correlation matrix to see whether there was a correlation
 between the types of words used and the six scores. However, no
 significant correlation was found, so these factors were not included in
-the model architecting process.
+the model architecture process.
 
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image008.png)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image008.png)
 
 To accurately reflect the efficiency of our models, we randomly split
-20% of our data as our validation set and calculated relative measures
-due to the small amount of test data. Additionally, we added five
+20% of our data as our validation set, and calculated relative measures due to the small amount of test data. Additionally, we added five
 passages, including a paragraph from Harry Potter, a paragraph from To
-Kill a Mockingbird, and three essays written by ESL students at
+To Kill a Mockingbird, and three essays written by ESL students at
 different levels of education (high school, college application, and
 college) to determine whether our model could be expanded for more
 generalized use. By predicting the scores for these passages, we aimed
 to see whether the model could be used for higher education or essays
 written by native English speakers.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image010.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image010.jpg)
 
 To prevent biases, the input for this study was the raw student essays.
 We used several natural language processing (NLP) methods, including
@@ -77,7 +76,7 @@ the MCRMSE to measure their accuracy, with lower numbers indicating
 better performance. Since we used four models, we took the average of
 the final results to calculate the overall accuracy.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image011.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image011.jpg)
 
 To further improve the accuracy of our models, we used the k-fold
 method, which divides the dataset into k smaller sets. We found that
@@ -95,15 +94,14 @@ The first model we used combined the TF-IDF method for text
 vectorization with the SVM algorithm for regression. TF-IDF is a common
 method for representing text data numerically, which allows it to be fed
 into algorithms. We used the SVM algorithm, a popular machine-learning
-method. Specifically, we used the SVR (support vector regression)
-variant of SVM for regression.
+method. Specifically, we used the SVR (support vector regression) of SVM for regression.
 
 Several parameters can be adjusted in the SVR function, including the
 regularization parameter \"c\", the \"epsilon\" value for the
 epsilon-tube, and the \"gamma\" value for the kernel coefficient. We
 used the default \"RBF\" kernel.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image012.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image012.jpg)
 
 The score of the MCRMSE for this model was 0.58, which is not
 particularly good. This suggests that the combination of TF-IDF and SVR
@@ -119,7 +117,7 @@ as the student\'s overall writing style or the specific vocabulary they
 used, may have contributed to the model\'s performance. Further analysis
 would be needed to confirm these observations.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image013.jpg)
+![](https://github.com/ydchendsa/nlp/blob/main/image013.jpg)
 
 **TF-IDF Model with ANN (Artificial Neural Networks)**
 
@@ -133,7 +131,7 @@ with using the ANN (artificial neural network) algorithm for regression.
 This resulted in an MCRMSE score of 0.51, which is better than the score
 obtained with the SVR algorithm.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image014.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image014.jpg)
 
 For the simple ANN, we used three layers. The first layer had 64 units
 and used the SoftMax activation function, while the second layer had 32
@@ -144,7 +142,7 @@ had the best results among the three students. However, the worst scores
 for the first and third students shifted from grammar to syntax, while
 the worst score for the second remained in grammar.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image015.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image015.jpg)
 
 Overall, the results of the SVR and ANN models suggest that the TF-IDF
 method may not be effective for predicting syntax and grammar ability.
@@ -167,7 +165,7 @@ to use. We initially did not use n-grams and obtained an accuracy of
 0.52. We then tried using bi-grams, trigrams, and higher-order n-grams
 to see if any of these would improve the model\'s accuracy. We found
 that bi-grams produced the highest accuracy, while n-grams with n = 3,
-4, and 5 had worse accuracy. One possible reason is that high school
+4 and 5 had worse accuracy. One possible reason is that high school
 students may have a low degree of correlation between many words. As
 shown in the accompanying graph, the accuracy of the bi-gram model
 reaches 0.5. This suggests that using bigrams may be a useful approach
@@ -181,7 +179,7 @@ used in the middle of the two layers to improve the results. The model
 also uses four dense layers, with each layer having half the size of the
 previous one to increase accuracy.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image016.png)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image016.png)
 
 Conv1d layers are a type of convolutional layer often used in natural
 language processing and time series analysis. They apply a convolution
@@ -213,7 +211,7 @@ be more effective for this dataset and task than the TF-IDF with SVR
 combination. Further analysis and experimentation would be needed to
 confirm this.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image018.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image018.jpg)
 
 **Multi-Robot Model with SVR Algorithm**
 
@@ -235,7 +233,7 @@ study, mean pooling was found to be more effective than max pooling and
 mean square root length pooling because it allowed more information to
 be retained without altering the content of the essay.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image019.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image019.jpg)
 
 To improve the precision of the multi-roberta model, Huber Loss was
 selected as the loss function. Huber Loss combines the benefits of
@@ -255,7 +253,7 @@ for the second student\'s phraseology and grammar compared to the other
 students. This is likely due to the fact that the second student\'s
 essay was the shortest and contained the fewest adjectives and adverbs.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image020.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image020.jpg)
 
 **Conclusion**
 
@@ -285,7 +283,7 @@ higher scores indicating that the text can be understood by readers with
 a higher level of education. These scores can be used to evaluate the
 overall quality of the writing.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image021.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image021.jpg)
 
 Our model and the \"textstat\" results both indicate that the second
 text has the lowest grade level and may be the most difficult to
@@ -302,4 +300,4 @@ features to provide students with detailed feedback on their writing. We
 believe this study will become a useful tool for ESL students to improve
 their writing abilities and succeed in their academic studies.
 
-![](https://github.com/hs1063/580_final/blob/main/imgs/img/image023.jpg)
+![](https://github.com/ydchendsa/imgs/blob/main/nlp/image023.jpg)
